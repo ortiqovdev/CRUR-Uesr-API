@@ -1,0 +1,59 @@
+<dimmer id="create-lead" >
+    <heading class="flex justify-center font-semibold text-3xl  bg-slate-400 text-white"> Create User </heading>
+    <content>
+        <form action="/" method="post" width="500px">
+        <div class="bg-slate-400 flex justify-center p-5">
+            <v-stack >
+                <input type="text" placeholder="Name" name="name" class="p-1 ">
+                <input type="email" placeholder="Email" name="email" class="p-1">
+                <select name="status" class="w-32 p-1">
+                    <option value=""> Status </option>
+                    <option value="erkak"> Erkak </option>
+                    <option value="ayol"> Ayol </option>
+                </select>
+            </v-stack>
+            <actions>
+                <button type="Submit" class="bg-green-400 p-1 w-20 text-white ml-5"> Add user </button>
+            </actions>
+            </div>
+        </form>
+    </content>
+</dimmer>
+<container p="50px">
+
+    <flex justify="space-between" padding="20px">
+        <h3 class="flex justify-center font-semibold text-3xl">All Users </h3>
+    </flex>
+
+    <table>
+        <thead>
+            <tr>
+                <th> # </th>
+                <th> Name </th>
+                <th> Email </th>
+                <th> Status </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each users}}
+            <tr>
+                <td> {{id}} </td>
+                <td> {{name}} </td>
+                <td> {{email}} </td>
+                <td> {{status}} </td>
+                <td>
+                    <h-stack gap="10px">
+                        <a href="/erkak/{{id}}/erkak"> Erkak </a>
+                        <a href="/ayol/{{id}}/ayol"> Ayol </a>
+                        <a href="/delete/{{id}}"> Delete </a>
+                    </h-stack>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+
+    </table>
+
+</container>
