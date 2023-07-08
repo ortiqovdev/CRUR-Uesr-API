@@ -35,3 +35,13 @@ export function updateStatus(id:number, status: string) {
         }
     })
 }
+export function updateName(id:number ,name:string) {
+    return prisma.users.update({
+       where:{
+        id
+       },
+       data:{
+        name
+       }
+    })
+}
